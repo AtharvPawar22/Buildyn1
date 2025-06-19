@@ -234,8 +234,6 @@ project_data = {
 @app.route('/')
 def home():
     """Serve the main HTML page"""
-    # You can either serve a static HTML file or return it as a string
-    # For now, let's return a simple response that tells users the API is running
     return jsonify({
         "message": "SkillPilot API is running!",
         "endpoints": {
@@ -255,7 +253,7 @@ def get_projects():
     Returns: {"easy": [...], "moderate": [...], "difficult": [...]}
     """
     if request.method == 'OPTIONS':
-        # Handle preflight request
+  
         response = jsonify({})
         response.headers.add('Access-Control-Allow-Origin', '*')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
@@ -278,9 +276,8 @@ def get_projects():
             matching_projects = []
             
             for project in project_data[difficulty]:
-                # Check if any of the user's tech stack matches project's tech
+             
                 if any(tech in project['tech'] for tech in tech_stack):
-                    # Only include matching technologies in the response
                     matching_tech = [tech for tech in project['tech'] if tech in tech_stack]
                     
                     project_copy = project.copy()
