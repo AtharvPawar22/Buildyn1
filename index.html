@@ -21,7 +21,6 @@
             line-height: 1.6;
         }
 
-        /* Background Canvas */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -72,7 +71,6 @@
             justify-content: center;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -161,7 +159,6 @@
             box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
         }
 
-        /* Why Section */
         .why-section {
             padding: 4rem 2rem;
             position: relative;
@@ -194,7 +191,6 @@
             line-height: 1.7;
         }
 
-        /* Main Content */
         .main-content {
             padding: 4rem 2rem;
             position: relative;
@@ -227,7 +223,7 @@
             margin-right: auto;
         }
 
-        /* Input Section */
+
         .input-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -480,7 +476,6 @@
             border-color: transparent;
         }
 
-        /* Filter Section */
         .filter-section {
             display: none;
             margin-bottom: 2rem;
@@ -547,7 +542,6 @@
             text-align: center;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 3rem;
@@ -613,7 +607,6 @@
         </div>
     </section>
 
-    <!-- Why Section -->
     <section class="why-section" id="why">
         <div class="why-container">
             <h2 class="why-title">Build Projects That Matter</h2>
@@ -672,10 +665,8 @@
     </main>
 
     <script>
-        // Configuration
         const API_BASE_URL = 'http://192.168.57.108:5002';
 
-        // 3D Background
         let scene, camera, renderer, meshes = [];
 
         function init3D() {
@@ -966,16 +957,12 @@
                 `;
             }).join('');
 
-            // Show filter section and initialize filters
             filterSection.classList.add('show');
             initializeFilters();
-
-            // Reset to show all projects
             setActiveFilter('all');
             filterProjects('all');
         }
 
-        // Filter functionality
         let currentFilter = 'all';
 
         function initializeFilters() {
@@ -1011,16 +998,14 @@
             });
         }
 
-        // Initialize filters when page loads
         document.addEventListener('DOMContentLoaded', initializeFilters);
 
-        // Smooth scroll for CTA
         document.querySelector('.cta-button').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('why').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Test API connection on page load
+
         async function testAPIConnection() {
             try {
                 const response = await fetch(`${API_BASE_URL}/health`);
@@ -1035,7 +1020,6 @@
             }
         }
 
-        // Test connection when page loads
         window.addEventListener('load', testAPIConnection);
     </script>
 </body>
